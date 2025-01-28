@@ -29,5 +29,5 @@ public class Jugador extends Personaje {
         if (y < limite - 1) y++;
     }
 
-    System.out.println("hola");
+    
 }

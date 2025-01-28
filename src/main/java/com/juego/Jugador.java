@@ -28,4 +28,6 @@ public class Jugador extends Personaje {
     public void moverAbajo(int limite) {
         if (y < limite - 1) y++;
     }
+
+    System.out.println("hola");
 }

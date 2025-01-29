@@ -11,11 +11,11 @@ public class Jugador extends Personaje {
 
     @Override
     public void mover() {
-        // Este método será controlado por los eventos de teclado
+        
     }
 
     public void moverIzquierda() {
-        if (x > 0) x--; // No permite salir del tablero
+        if (x > 0) x--;
     }
 
     public void moverDerecha(int limite) {

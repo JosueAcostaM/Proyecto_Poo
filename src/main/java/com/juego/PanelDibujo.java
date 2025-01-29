@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class PanelDibujo extends JPanel {
 
-    private final static int filas = 14;
+    private final static int filas = 13;
     private final static int columnas = 25;
     private final int tamanoCelda = 54;
     private List<Personaje> personajes;
@@ -23,7 +23,7 @@ public class PanelDibujo extends JPanel {
 
     public void agregarPersonaje(Personaje personaje) {
         personajes.add(personaje);
-        repaint(); //redibuja
+        repaint(); 
     }
 
     @Override
@@ -44,8 +44,14 @@ public class PanelDibujo extends JPanel {
 
         // Dibujar personajes
         for (Personaje personaje : personajes) {
-            g.setColor(personaje.getColor());
-            g.fillOval(personaje.getX() * tamanoCelda, personaje.getY() * tamanoCelda, tamanoCelda, tamanoCelda);
+            Image imagen = personaje.getImagen(); 
+            if (imagen != null) {
+                g.drawImage(imagen, personaje.getX() * tamanoCelda, personaje.getY() * tamanoCelda, tamanoCelda, tamanoCelda, this);
+            } else {
+               
+                g.setColor(personaje.getColor());
+                g.fillOval(personaje.getX() * tamanoCelda, personaje.getY() * tamanoCelda, tamanoCelda, tamanoCelda);
+            }
         }
     }
 

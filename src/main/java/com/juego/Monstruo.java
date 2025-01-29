@@ -7,8 +7,8 @@ public  abstract class Monstruo  extends Personaje{
 
     protected String tipo;
 
-    public Monstruo(int x, int y, String nombre, Color color, String simbolo, int puntos, String tipo, Image diseño) {
-        super(x, y, nombre, color, simbolo, puntos, diseño);
+    public Monstruo(int x, int y, String nombre, Color color, int puntos, String tipo, Image diseño) {
+        super(x, y, nombre, color, puntos, diseño);
         this.tipo = tipo;
     }
 

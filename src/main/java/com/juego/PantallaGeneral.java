@@ -14,7 +14,7 @@ public class PantallaGeneral extends JFrame {
     public PantallaGeneral() {
         setTitle("VideoJuego (JOSUE ACOSTA)");
         setSize(800, 600);
-        setExtendedState(JFrame.MAXIMIZED_BOTH); // Maximiza la ventana
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         menu = new Menu();
@@ -30,15 +30,15 @@ public class PantallaGeneral extends JFrame {
     }
 
     private void inicializarPersonajes() {
-         Image diseñojugador = new ImageIcon(getClass().getResource("/imagenes/Jugador.png")).getImage();
+         Image diseñojugador = new ImageIcon(getClass().getResource("/imagenes/bgf8f8f8-flat750x075f-pad750x1000f8f8f8.png")).getImage();
 
          Image diseñoMonstruo1= new ImageIcon(getClass().getResource("/imagenes/Jugador.png")).getImage();
 
          Image diseñoMonstruo2= new ImageIcon(getClass().getResource("/imagenes/Jugador.png")).getImage();
 
-        jugador = new Jugador(2, 2, "Jugador", Color.BLUE, "J", 0,diseñojugador);
-        Monstruo1 monstruo1 = new Monstruo1(4, 4, "Monstruo1", Color.RED, "M1", 10, "tipo1", diseñoMonstruo1);
-        Monstruo2 monstruo2 = new Monstruo2(6, 6, "Monstruo2", Color.GREEN, "M2", 20, "tipo2",diseñoMonstruo2);
+        jugador = new Jugador(2, 2, "Jugador", Color.BLUE, 0,diseñojugador);
+        Monstruo1 monstruo1 = new Monstruo1(4, 4, "Monstruo1", Color.RED, 10, "tipo1", diseñoMonstruo1);
+        Monstruo2 monstruo2 = new Monstruo2(6, 6, "Monstruo2", Color.GREEN, 20, "tipo2",diseñoMonstruo2);
 
         panelDibujo.agregarPersonaje(jugador);
         panelDibujo.agregarPersonaje(monstruo1);
@@ -46,7 +46,7 @@ public class PantallaGeneral extends JFrame {
     }
 
     private void iniciarMovimientoMonstruos() {
-        Timer timer = new Timer(500, e -> { // Actualiza cada 500 ms
+        Timer timer = new Timer(700, e -> { 
             for (Personaje personaje : panelDibujo.getPersonajes()) {
                 if (personaje instanceof Monstruo) {
                     personaje.mover();

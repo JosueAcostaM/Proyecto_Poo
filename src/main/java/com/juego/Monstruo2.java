@@ -8,8 +8,8 @@ public class Monstruo2 extends Monstruo{
 
     protected String tipo;
 
-    public Monstruo2(int x, int y, String nombre, Color color, String simbolo, int puntos, String tipo, Image diseño){
-        super(x, y, nombre, color, simbolo, puntos,tipo, diseño);
+    public Monstruo2(int x, int y, String nombre, Color color, int puntos, String tipo, Image diseño){
+        super(x, y, nombre, color, puntos,tipo, diseño);
         puntos=20;
     }
 

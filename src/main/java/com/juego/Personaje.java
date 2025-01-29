@@ -1,6 +1,7 @@
 package com.juego;
 
 import java.awt.Color;
+import java.awt.*;
 
 public abstract class Personaje {
 
@@ -9,8 +10,11 @@ public abstract class Personaje {
     protected String simbolo;
     protected int puntos;
     protected int x,y;
+    protected Image diseño;
 
-    public Personaje(int x, int y, String nombre, Color color, String simbolo, int puntos){
+    
+
+    public Personaje(int x, int y, String nombre, Color color, String simbolo, int puntos, Image diseño){
 
         this.x = x;
         this.y = y;
@@ -18,6 +22,7 @@ public abstract class Personaje {
         this.color=color;
         this.simbolo=simbolo;
         this.puntos=puntos;
+        this.diseño= diseño;
     }
 
 
@@ -33,5 +38,9 @@ public abstract class Personaje {
 
     public Color getColor() {
         return color;
+    }
+
+    public Image getImagen(){
+        return diseño;
     }
 }

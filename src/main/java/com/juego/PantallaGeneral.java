@@ -25,18 +25,36 @@ public class PantallaGeneral extends JFrame {
 
         inicializarPersonajes();
         agregarControles();
-
+        iniciarMovimientoMonstruos();
         
     }
 
     private void inicializarPersonajes() {
-        jugador = new Jugador(2, 2, "Jugador", Color.BLUE, "J", 0);
-        Monstruo1 monstruo1 = new Monstruo1(4, 4, "Monstruo1", Color.RED, "M1", 10, "tipo1");
-        Monstruo2 monstruo2 = new Monstruo2(6, 6, "Monstruo2", Color.GREEN, "M2", 20, "tipo2");
+         Image diseñojugador = new ImageIcon(getClass().getResource("/imagenes/Jugador.png")).getImage();
+
+         Image diseñoMonstruo1= new ImageIcon(getClass().getResource("/imagenes/Jugador.png")).getImage();
+
+         Image diseñoMonstruo2= new ImageIcon(getClass().getResource("/imagenes/Jugador.png")).getImage();
+
+        jugador = new Jugador(2, 2, "Jugador", Color.BLUE, "J", 0,diseñojugador);
+        Monstruo1 monstruo1 = new Monstruo1(4, 4, "Monstruo1", Color.RED, "M1", 10, "tipo1", diseñoMonstruo1);
+        Monstruo2 monstruo2 = new Monstruo2(6, 6, "Monstruo2", Color.GREEN, "M2", 20, "tipo2",diseñoMonstruo2);
 
         panelDibujo.agregarPersonaje(jugador);
         panelDibujo.agregarPersonaje(monstruo1);
         panelDibujo.agregarPersonaje(monstruo2);
+    }
+
+    private void iniciarMovimientoMonstruos() {
+        Timer timer = new Timer(500, e -> { // Actualiza cada 500 ms
+            for (Personaje personaje : panelDibujo.getPersonajes()) {
+                if (personaje instanceof Monstruo) {
+                    personaje.mover();
+                }
+            }
+            panelDibujo.repaint();
+        });
+        timer.start();
     }
 
     private void agregarControles() {
@@ -50,7 +68,7 @@ public class PantallaGeneral extends JFrame {
                         panelDibujo.repaint();
                     }
                     case KeyEvent.VK_RIGHT -> {
-                        jugador.moverDerecha(panelDibujo.getColumnas()
+                        jugador.moverDerecha(PanelDibujo.getColumnas()
                         ); 
                         panelDibujo.repaint();
                     }
@@ -59,7 +77,7 @@ public class PantallaGeneral extends JFrame {
                         panelDibujo.repaint();
                     }
                     case KeyEvent.VK_DOWN -> {
-                        jugador.moverAbajo(panelDibujo.getFilas());
+                        jugador.moverAbajo(PanelDibujo.getFilas());
                         panelDibujo.repaint();
                     }
                 }

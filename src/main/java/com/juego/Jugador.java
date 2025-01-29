@@ -1,11 +1,12 @@
 package com.juego;
 
 import java.awt.Color;
+import java.awt.Image;
 
 public class Jugador extends Personaje {
 
-    public Jugador(int x, int y, String nombre, Color color, String simbolo, int puntos) {
-        super(x, y, nombre, color, simbolo, puntos);
+    public Jugador(int x, int y, String nombre, Color color, String simbolo, int puntos, Image diseño) {
+        super(x, y, nombre, color, simbolo, puntos, diseño);
     }
 
     @Override

@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public class PanelDibujo extends JPanel {
 
-    private final int filas = 14;
-    private final int columnas = 25;
+    private final static int filas = 14;
+    private final static int columnas = 25;
     private final int tamanoCelda = 54;
     private List<Personaje> personajes;
     private Image fondo;
@@ -17,7 +17,7 @@ public class PanelDibujo extends JPanel {
 
         setBackground(Color.BLACK);
         personajes = new ArrayList<>();
-        fondo = new ImageIcon(getClass().getResource("/imagenes/WhatsApp Image 2025-01-28 at 5.54.37 PM.jpg")).getImage();
+        fondo = new ImageIcon(getClass().getResource("/imagenes/Fondo suelo.jpg")).getImage();
 
     }
 
@@ -49,11 +49,15 @@ public class PanelDibujo extends JPanel {
         }
     }
 
-    public int getFilas(){
+    public static int getFilas(){
         return filas;
     }
 
-    public int getColumnas(){
+    public static int getColumnas(){
         return columnas;
+    }
+
+    public List<Personaje> getPersonajes() {
+        return personajes;
     }
 }

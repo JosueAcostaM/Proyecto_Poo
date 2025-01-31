@@ -7,24 +7,21 @@ public abstract class Personaje {
 
     protected String nombre;
     protected Color color; 
-    protected String simbolo;
     protected int puntos;
     protected int x,y;
     protected Image diseño;
 
     
 
-    public Personaje(int x, int y, String nombre, Color color, String simbolo, int puntos, Image diseño){
+    public Personaje(int x, int y, String nombre, Color color, int puntos, Image diseño){
 
         this.x = x;
         this.y = y;
         this.nombre=nombre;
         this.color=color;
-        this.simbolo=simbolo;
         this.puntos=puntos;
         this.diseño= diseño;
     }
-
 
     public abstract void mover();
 

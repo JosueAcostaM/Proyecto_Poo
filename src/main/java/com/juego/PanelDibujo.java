@@ -9,8 +9,9 @@ public class PanelDibujo extends JPanel {
 
     private final static int filas = 13;
     private final static int columnas = 25;
-    private final int tamanoCelda = 54;
+    private static final int tamanoCelda = 50;
     private List<Personaje> personajes;
+    private List<Monstruo> monstruos;
     private Image fondo;
 
     public PanelDibujo() {
@@ -55,15 +56,38 @@ public class PanelDibujo extends JPanel {
         }
     }
 
+//cordenadas x mosntruo para spawn
+   /*  public static int getLimiteX() {
+        
+      int x= ;
+        if(panelDibujo.getPosicionXmonstruo()==0 || x==tablero-1){
+            crearEnemigo(x,random.next(int)*y);
+        int dx = random.nextInt(3) - 1;
+
+
+        return columnas * tamanoCelda;}
+         // Límite derecho 
+    }*/
+
+    /*public static int getLimiteY() {
+        return filas * tamanoCelda; // Límite inferior
+    }*/
+
+    
+
+    public List<Personaje> getPersonajes() {
+        return personajes;
+    }
+
+    public List<Monstruo> getMonstruos() {
+        return monstruos;
+    }
+
     public static int getFilas(){
         return filas;
     }
 
     public static int getColumnas(){
         return columnas;
-    }
-
-    public List<Personaje> getPersonajes() {
-        return personajes;
     }
 }

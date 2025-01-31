@@ -28,4 +28,12 @@ public class Monstruo1 extends Monstruo{
         if (y >= PanelDibujo.getFilas()) y = PanelDibujo.getFilas()-1;
     }
 
+    public int getPosicionXmonstruo(){
+        return x;
+    }
+
+    public int getPosicionymonstruo(){
+        return y;
+    }
+
 }

@@ -1,24 +1,38 @@
 package com.juego;
 
 import javax.swing.*;
+import java.awt.event.*;
 
 
 public class Menu  extends JPanel{
 
     private JButton btnIniciar;
     private JButton btnDetener;
-    private JButton btnReiniciar;
+    
+    
 
     public Menu() {
 
 
         btnIniciar= new JButton("Iniciar Juego");
         btnDetener= new JButton("Parar Juego");
-        btnReiniciar = new JButton("Reinciar el Juego");
 
         add(btnIniciar);
         add(btnDetener);
-        add(btnReiniciar);
+
     }
+
+    
+
+    public void setActionListenerBtnIniciar(ActionListener actionListener) {
+        btnIniciar.addActionListener(actionListener);
+    }
+
+    public void setActionListenerBtnDetener(ActionListener actionListener) {
+        btnDetener.addActionListener(actionListener);
+    }
+
+    
+
 
 }

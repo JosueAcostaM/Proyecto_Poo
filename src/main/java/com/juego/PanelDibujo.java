@@ -7,19 +7,19 @@ import java.util.ArrayList;
 
 public class PanelDibujo extends JPanel {
 
-    private final static int filas = 13;
-    private final static int columnas = 25;
-    private static final int tamanoCelda = 50;
+    private static int filas = 16; //13  -  16
+    private static int columnas = 33;  //25 -  
+    private int tamanoCelda;
     private List<Personaje> personajes;
     private List<Monstruo> monstruos;
     private Image fondo;
 
-    public PanelDibujo() {
+    
 
+    public PanelDibujo() {
         setBackground(Color.BLACK);
         personajes = new ArrayList<>();
-        fondo = new ImageIcon(getClass().getResource("/imagenes/Fondo suelo.jpg")).getImage();
-
+        fondo = new ImageIcon(getClass().getResource("/imagenes/bee6b29d-854f-4610-83d1-b35a1f385202.jpg")).getImage();
     }
 
     public void agregarPersonaje(Personaje personaje) {
@@ -27,9 +27,11 @@ public class PanelDibujo extends JPanel {
         repaint(); 
     }
 
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        ajustarTamanoCelda();
 
         if (fondo != null) {
             g.drawImage(fondo, 0, 0, getWidth(), getHeight(), this);
@@ -46,34 +48,22 @@ public class PanelDibujo extends JPanel {
         // Dibujar personajes
         for (Personaje personaje : personajes) {
             Image imagen = personaje.getImagen(); 
+            int x = personaje.getX() * tamanoCelda;
+            int y = personaje.getY() * tamanoCelda;
             if (imagen != null) {
-                g.drawImage(imagen, personaje.getX() * tamanoCelda, personaje.getY() * tamanoCelda, tamanoCelda, tamanoCelda, this);
+                g.drawImage(imagen, x, y, tamanoCelda, tamanoCelda, this);
             } else {
-               
                 g.setColor(personaje.getColor());
-                g.fillOval(personaje.getX() * tamanoCelda, personaje.getY() * tamanoCelda, tamanoCelda, tamanoCelda);
+                g.fillOval(x, y, tamanoCelda, tamanoCelda);
             }
         }
+
+        
     }
 
-//cordenadas x mosntruo para spawn
-   /*  public static int getLimiteX() {
-        
-      int x= ;
-        if(panelDibujo.getPosicionXmonstruo()==0 || x==tablero-1){
-            crearEnemigo(x,random.next(int)*y);
-        int dx = random.nextInt(3) - 1;
-
-
-        return columnas * tamanoCelda;}
-         // Límite derecho 
-    }*/
-
-    /*public static int getLimiteY() {
-        return filas * tamanoCelda; // Límite inferior
-    }*/
-
-    
+    private void ajustarTamanoCelda() {
+        tamanoCelda = Math.min(getWidth() / columnas, getHeight() / filas);
+    }
 
     public List<Personaje> getPersonajes() {
         return personajes;

@@ -36,4 +36,6 @@ public class Monstruo1 extends Monstruo{
         return y;
     }
 
+    
+
 }

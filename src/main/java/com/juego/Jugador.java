@@ -6,8 +6,11 @@ import java.util.List;
 
 public class Jugador extends Personaje {
 
-    public Jugador(int x, int y, String nombre, Color color, int puntos, Image diseño) {
+    private PantallaGeneral pantallaGeneral;
+
+    public Jugador(int x, int y, String nombre, Color color, int puntos, Image diseño,PantallaGeneral pantallaGeneral) {
         super(x, y, nombre, color, puntos, diseño);
+        this.pantallaGeneral = pantallaGeneral; 
     }
         
     @Override
@@ -18,10 +21,20 @@ public class Jugador extends Personaje {
     public void atrapar(List<Monstruo> monstruos) {
         for (Monstruo monstruo : monstruos) {
             if (this.x == monstruo.getX() && this.y == monstruo.getY()) {
-
-               // monstruo.atrapado(); // Suponiendo que 'atrapado' es un método que cambia el estado del monstruo
+                aumentarPuntos(monstruo.getPuntos()); 
+                monstruo.desaparecer();  
+                pantallaGeneral.actualizarPuntos();  
+                System.out.println("Puntos actuales: " + this.puntos);
             }
         }
+    }
+
+    public void aumentarPuntos(int puntos) {
+        this.puntos += puntos;
+    }
+
+    public int getPuntos() {
+        return puntos;
     }
 
     public void moverIzquierda() {
